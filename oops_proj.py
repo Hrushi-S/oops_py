@@ -1,9 +1,26 @@
 class chatbook:
-    def __init__(self, username, pwd, logged_in=False):
+
+    __user_id = 0
+    def __init__(self, username, pwd, logged_in=False): #constructor
+        self.id = chatbook.__user_id
+        chatbook.__user_id += 1
+        self.__name = "Agent X" #encapsulation of attribute
         self.username = username
         self.password = pwd
         self.logged_in = logged_in
         # self.menu()
+
+    def get_name(self): #getter method
+        return self.__name 
+    
+    def set_name(self, value): #setter method
+        self.__name = value
+        return self.__name
+    
+    @staticmethod
+    def set_id(value):
+        chatbook.__user_id = value
+        return chatbook.__user_id
 
     def menu(self):
          while True:
